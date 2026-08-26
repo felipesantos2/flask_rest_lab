@@ -1,12 +1,23 @@
-import sys
-
-from flask import Flask, make_response, request
+from flask import Flask, jsonify, request
 
 
 def routes(app: Flask, middleware: list | None = None):
     @app.route("/", methods=["GET"])
-    async def home():
-        return request.base_url
+    def home():
+        return jsonify(
+            [
+                {
+                    "name": "felipesantos2",
+                    "idade": 23,
+                    "profissao": "desenvolvedor backend",
+                },
+                {
+                    "name": "felipesantos2",
+                    "idade": 23,
+                    "profissao": "desenvolvedor backend",
+                },
+            ]
+        )
 
     # lista todos os contratos
     # Número
@@ -15,7 +26,7 @@ def routes(app: Flask, middleware: list | None = None):
     # Período
     # Partes
     @app.route("/agreetments", methods=["GET"])
-    async def agreetments():
+    def agreetments():
         print(request.headers)
         return request.base_url
 
@@ -39,7 +50,7 @@ def routes(app: Flask, middleware: list | None = None):
     #   - Pagamentos Pendentes
     # Link para Download ou para gerar o documento
     @app.route("/agreetments_details", methods=["GET"])
-    async def agreetment_details():
+    def agreetment_details():
         print(request.headers)
         return request.base_url
 

@@ -6,7 +6,7 @@ from src.app import routes
 app = Flask(__name__, instance_relative_config=True)
 
 # rotas da aplicação
-routes.web(app, [])
+# routes.web(app, [])
 routes.api(app, [])
 
 if __name__ == "__main__":

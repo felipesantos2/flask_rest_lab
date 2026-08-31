@@ -29,6 +29,10 @@ ou
 
 `uv run server.py`
 
+Se sua versão do Python for compatível é possível execurar o app diretamente: `python3 server.py`. Prefiro sempre executar com o `UV`
+
+Versão do Projeto: [3.12](.python-version)
+
 Problema:
 
 Notas:

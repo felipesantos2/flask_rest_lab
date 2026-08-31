@@ -1,58 +1,53 @@
-from flask import Flask, jsonify, request
+from flask import Flask
+
+from .controllers.AgreetmentController import AgreetmentController
+from .controllers.AgreetmentDetailsController import AgreetmentDetailsController
+from .controllers.ContractorsController import ContractorsController
+from .controllers.HomeController import HomeController
 
 
-def routes(app: Flask, middleware: list | None = None):
+def web(app: Flask, middleware: list | None = None):
     @app.route("/", methods=["GET"])
     def home():
-        return jsonify(
-            [
-                {
-                    "name": "felipesantos2",
-                    "idade": 23,
-                    "profissao": "desenvolvedor backend",
-                },
-                {
-                    "name": "felipesantos2",
-                    "idade": 23,
-                    "profissao": "desenvolvedor backend",
-                },
-            ]
-        )
+        ct = HomeController()
+        return ct.index()
 
-    # lista todos os contratos
-    # Número
-    # Ano
-    # Valor
-    # Período
-    # Partes
     @app.route("/agreetments", methods=["GET"])
     def agreetments():
-        print(request.headers)
-        return request.base_url
+        ct = AgreetmentController()
+        return ct.index()
 
-    # lista contratadores
-    # Nome
-    # Serviço
-    # Pagamentos Previstos
     @app.route("/contrators", methods=["GET"])
     def contractors():
-        print(request.headers)
-        return request.base_url
+        ct = ContractorsController()
+        return ct.index()
 
-    # informações sobre um contrato
-    # Partes
-    # Serviço
-    # Contrato
-    # Detalhes
-    #   - Valores
-    #   - Arquivos
-    #   - Pagamentos Feitos
-    #   - Pagamentos Pendentes
-    # Link para Download ou para gerar o documento
     @app.route("/agreetments_details", methods=["GET"])
     def agreetment_details():
-        print(request.headers)
-        return request.base_url
+        ct = AgreetmentDetailsController()
+        return ct.index()
+
+
+def api(app: Flask, middleware: list | None = None):
+    @app.route("/", methods=["GET"])
+    def home():
+        ct = HomeController()
+        return ct.index()
+
+    @app.route("/agreetments", methods=["GET"])
+    def agreetments():
+        ct = AgreetmentController()
+        return ct.index()
+
+    @app.route("/contrators", methods=["GET"])
+    def contractors():
+        ct = ContractorsController()
+        return ct.index()
+
+    @app.route("/agreetments_details", methods=["GET"])
+    def agreetment_details():
+        ct = AgreetmentDetailsController()
+        return ct.index()
 
 
 if __name__ == "__main__":

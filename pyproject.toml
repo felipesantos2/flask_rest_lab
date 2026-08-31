@@ -1,7 +1,7 @@
 [project]
 name = "flask-rest-lab"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Simplee API REST with Flask"
 readme = "README.md"
 authors = [
     { name = "felipesantos2", email = "santospinheiro627@gmail.com" }
@@ -11,16 +11,17 @@ dependencies = [
     "flask>=3.1.3",
     "jinja2>=3.1.6",
     "mysql-connector-python>=26.7.0",
+    "python-dotenv>=1.2.3",
     "rich-cli>=1.8.1",
     "weasyprint>=69.0",
 ]
 
-[project.scripts]
-flask-rest-lab = "flask_rest_lab:main"
+# [project.scripts]
+# flask-rest-lab = "flask_rest_lab:main"
 
-[build-system]
-requires = ["uv_build>=0.12.5,<0.13.0"]
-build-backend = "uv_build"
+# [build-system]
+# requires = ["uv_build>=0.12.5,<0.13.0"]
+# build-backend = "uv_build"
 
 [dependency-groups]
 dev = [

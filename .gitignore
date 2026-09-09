@@ -2,3 +2,5 @@
 .ruff*
 .ty*
 **/__pycache__
+
+.env
